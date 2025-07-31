@@ -150,7 +150,7 @@
               <!-- 风险健康度地图区域 -->
               <div class="content-section">
                 <div class="section-header">
-                  <span class="section-title">风险健康度地图</span>
+                  <span class="section-title">福建省风险健康度地图</span>
                   <div class="dimension-tabs">
                     <el-radio-group v-model="mapDimension" size="small">
                       <el-radio-button label="product">产品领域</el-radio-button>
@@ -231,7 +231,7 @@
                   </div>
                   
                   <!-- 非ICT项目 -->
-                  <div class="project-section">
+                  <div class="project-section clickable" @click="goToNonICTProjects">
                     <div class="section-title-small">非ICT项目</div>
                     <div class="stats-row">
                       <div class="stat-item">
@@ -789,6 +789,18 @@ const handleTimeModeChange = (mode) => {
   border-radius: 4px;
   border: 1px solid #e4e7ed;
   padding: 12px;
+}
+
+.project-section.clickable {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.project-section.clickable:hover {
+  background-color: #f5f7fa;
+  border-color: #f56c6c;
+  box-shadow: 0 4px 12px rgba(245, 108, 108, 0.2);
+  transform: translateY(-2px);
 }
 
 .section-title-small {

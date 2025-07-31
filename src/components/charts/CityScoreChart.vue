@@ -20,7 +20,7 @@ const initChart = () => {
   }
   
   // 地市得分数据
-  const cityScoreData = [99.67, 99.5, 99.3, 99.2, 99.1, 99.0, 98.9, 98.8, 98.7, 98.6, 98.5, 98.4, 98.3, 98.2, 97.5, 97.2, 96.8, 96.5, 96.2, 95.8, 95.5]
+  const cityScoreData = [96.0, 92.3, 91.0, 88.0, 86.0, 78.0, 77.0, 71.0]
   
   const option = {
     tooltip: {
@@ -46,7 +46,7 @@ const initChart = () => {
     },
     xAxis: {
       type: 'category',
-      data: ['广州', '惠州', '中山', '江门', '汕头', '珠海', '清远', '梅州', '河源', '阳江', '韶关', '潮州', '汕尾', '云浮', '深圳', '东莞', '佛山', '湛江', '茂名', '揭阳', '肇庆'],
+      data: ['南平市', '福州市', '龙岩市', '泉州市', '厦门市', '宁德市', '莆田市', '三明市'],
       axisLine: {
         lineStyle: {
           color: '#e4e7ed'
@@ -64,7 +64,7 @@ const initChart = () => {
     },
     yAxis: {
       type: 'value',
-      min: 90,
+      min: 70,
       max: 100,
       axisLine: {
         show: false

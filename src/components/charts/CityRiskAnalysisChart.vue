@@ -16,7 +16,7 @@ const initChart = () => {
   
   // 生成随机数据
   const generateRandomData = () => {
-    return Array.from({ length: 21 }, () => Math.random() * 0.8 + 0.1)
+    return Array.from({ length: 8 }, () => Math.random() * 0.8 + 0.1)
   }
   
   const option = {
@@ -51,7 +51,7 @@ const initChart = () => {
     },
     xAxis: {
       type: 'category',
-      data: ['广州', '深圳', '东莞', '佛山', '惠州', '湛江', '中山', '茂名', '揭阳', '江门', '汕头', '珠海', '清远', '肇庆', '梅州', '河源', '阳江', '韶关', '潮州', '汕尾', '云浮'],
+      data: ['南平市', '福州市', '龙岩市', '泉州市', '厦门市', '宁德市', '莆田市', '三明市'],
       axisLine: {
         lineStyle: {
           color: '#e4e7ed'

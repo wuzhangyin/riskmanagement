@@ -50,11 +50,11 @@
             <div class="kpi-header">
               <span class="kpi-title">健康度</span>
             </div>
-            <div class="kpi-status">
+            <div class="kpi-value health-status">
               <div class="status-icon excellent"></div>
               <span class="status-text">优秀</span>
             </div>
-            <div class="kpi-trend trend-up">环比 +0%</div>
+            <div class="kpi-trend trend-up">环比 +5.2%</div>
           </div>
           
           <div class="kpi-card">
@@ -62,7 +62,7 @@
               <span class="kpi-title">风险得分</span>
             </div>
             <div class="kpi-value">94.4</div>
-            <div class="kpi-trend trend-up">环比 +0%</div>
+            <div class="kpi-trend trend-down">环比 -2.1%</div>
           </div>
           
           <div class="kpi-card">
@@ -70,7 +70,7 @@
               <span class="kpi-title">预警量</span>
             </div>
             <div class="kpi-value">6</div>
-            <div class="kpi-trend trend-up">环比 +0%</div>
+            <div class="kpi-trend trend-up">环比 +8.7%</div>
           </div>
           
           <div class="kpi-card">
@@ -129,10 +129,10 @@
                 </tr>
                 <tr>
                   <td>风险预警量环比</td>
-                  <td>0%</td>
-                  <td>100.0</td>
+                  <td>8.7%</td>
+                  <td>85.0</td>
                   <td>40%</td>
-                  <td>0.0</td>
+                  <td>6.0</td>
                 </tr>
               </tbody>
             </table>
@@ -370,8 +370,8 @@ const generateRandomRiskData = () => {
   const errorReasons = ['上游客户欠费', '客户信用评级低', '合同履约异常', '资金周转困难', '经营状况恶化']
   const riskLevels = ['high', 'medium', 'low']
   const riskLevelTexts = ['高风险', '中风险', '低风险']
-  const cities = ['广州', '深圳', '东莞', '佛山', '惠州', '湛江', '中山', '茂名', '揭阳', '江门', '汕头', '珠海', '清远', '肇庆', '梅州', '河源', '阳江', '韶关', '潮州', '汕尾', '云浮']
-  const customerNames = ['广州烽云信息科技有限公司', '国恒贸易有限公司', '广州市广瀚信息技术有限公司', '广州东云网络科技有限公司', '深圳智慧科技有限公司', '东莞创新科技有限公司', '佛山科技发展有限公司', '惠州信息技术有限公司', '湛江数字科技有限公司', '中山智能科技有限公司']
+  const cities = ['福州', '厦门', '泉州', '漳州', '莆田', '三明', '南平', '龙岩', '宁德']
+  const customerNames = ['福建网龙网络科技有限公司', '福建星网锐捷通讯股份有限公司', '福建新大陆科技集团有限公司', '福建福光股份有限公司', '福建天马科技集团股份有限公司', '福建三钢闽光股份有限公司', '福建水泥股份有限公司', '福建高速股份有限公司', '福建广电网络集团股份有限公司', '福建海峡银行股份有限公司', '福建兴业银行股份有限公司', '福建恒安集团有限公司', '福建七匹狼实业股份有限公司', '福建安踏体育用品有限公司', '福建特步国际控股有限公司', '福建361度国际有限公司', '福建匹克体育用品有限公司', '福建鸿星尔克体育用品有限公司', '福建贵人鸟股份有限公司', '福建德尔惠体育用品有限公司']
   const projectNames = ['大数据分析平台', '云计算基础设施', '物联网监控系统', '人工智能算法平台', '区块链技术应用', '5G网络优化项目', '数字化转型项目', '智慧城市解决方案', '企业级SaaS平台', '边缘计算部署']
 
   return Array.from({ length: 25 }, (_, index) => ({
@@ -393,8 +393,8 @@ const generateRandomMobileCloudData = () => {
   const errorReasons = ['黄色预警:上游客户为异地客户', '红色预警:上游客户信用评级低', '橙色预警:上游客户经营异常']
   const riskLevels = ['high', 'medium', 'low']
   const riskLevelTexts = ['高风险', '中风险', '低风险']
-  const cities = ['广州', '深圳', '东莞', '佛山', '惠州', '湛江', '中山', '茂名', '揭阳', '江门', '汕头', '珠海', '清远', '肇庆', '梅州', '河源', '阳江', '韶关', '潮州', '汕尾', '云浮']
-  const customerNames = ['广州烽云信息科技有限公司', '国恒贸易有限公司', '广州市广瀚信息技术有限公司', '广州东云网络科技有限公司', '深圳智慧科技有限公司', '东莞创新科技有限公司', '佛山科技发展有限公司', '惠州信息技术有限公司', '湛江数字科技有限公司', '中山智能科技有限公司']
+  const cities = ['福州', '厦门', '泉州', '漳州', '莆田', '三明', '南平', '龙岩', '宁德']
+  const customerNames = ['福建网龙网络科技有限公司', '福建星网锐捷通讯股份有限公司', '福建新大陆科技集团有限公司', '福建福光股份有限公司', '福建天马科技集团股份有限公司', '福建三钢闽光股份有限公司', '福建水泥股份有限公司', '福建高速股份有限公司', '福建广电网络集团股份有限公司', '福建海峡银行股份有限公司', '福建兴业银行股份有限公司', '福建恒安集团有限公司', '福建七匹狼实业股份有限公司', '福建安踏体育用品有限公司', '福建特步国际控股有限公司', '福建361度国际有限公司', '福建匹克体育用品有限公司', '福建鸿星尔克体育用品有限公司', '福建贵人鸟股份有限公司', '福建德尔惠体育用品有限公司']
   const partnerNames = ['华为技术有限公司', '腾讯科技有限公司', '阿里巴巴集团', '百度在线网络技术有限公司', '字节跳动科技有限公司', '美团点评集团', '滴滴出行科技有限公司', '京东集团', '网易公司', '小米集团']
   const projectNames = ['移动云平台建设', '大数据分析系统', '物联网监控平台', '人工智能算法优化', '区块链技术应用', '5G网络部署', '数字化转型项目', '智慧城市解决方案', '企业级云服务', '边缘计算平台']
 
@@ -504,6 +504,7 @@ const handlePageChange2 = (page) => {
   grid-template-columns: 1fr 1fr;
   gap: 20px;
   margin-bottom: 20px;
+  align-items: stretch;
 }
 
 /* 左侧区域 */
@@ -511,6 +512,7 @@ const handlePageChange2 = (page) => {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  min-height: 100%;
 }
 
 /* KPI卡片 */
@@ -525,7 +527,10 @@ const handlePageChange2 = (page) => {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 120px;
 }
 
 .kpi-header {
@@ -544,20 +549,39 @@ const handlePageChange2 = (page) => {
   font-size: 28px;
   font-weight: 700;
   color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: 1;
+  margin: 8px 0;
+}
+
+.kpi-value.health-status {
+  font-size: 16px;
+  font-weight: 600;
+  color: #67c23a;
+  min-height: 40px;
+  align-items: center;
 }
 
 .kpi-trend {
   font-size: 14px;
   font-weight: 500;
-  margin-top: 8px;
+  text-align: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-top: auto;
 }
 
 .trend-up {
   color: #67c23a;
+  background: rgba(103, 194, 58, 0.1);
 }
 
 .trend-down {
   color: #f56c6c;
+  background: rgba(245, 108, 108, 0.1);
 }
 
 .kpi-status {
@@ -591,6 +615,9 @@ const handlePageChange2 = (page) => {
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .card-header {
@@ -615,6 +642,8 @@ const handlePageChange2 = (page) => {
 .chart-container {
   height: 300px;
   padding: 20px;
+  flex: 1;
+  min-height: 0;
 }
 
 /* 右侧区域 */
@@ -622,6 +651,7 @@ const handlePageChange2 = (page) => {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  min-height: 100%;
 }
 
 /* 计算表格 */

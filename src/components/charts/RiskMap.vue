@@ -3,7 +3,14 @@
     <div class="map-content">
       <!-- 广东省地图图片 -->
       <div class="map-wrapper">
-        <img src="/images/map1.png" alt="广东省风险健康度地图" class="map-image" />
+        <img :src="`/images/map1.png?t=${timestamp}`" alt="福建省风险健康度地图" class="map-image" />
+        
+        <!-- 刷新按钮 -->
+        <button @click="refreshImage" class="refresh-btn" title="刷新地图">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M23 4v6h-6M1 20v-6h6M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/>
+          </svg>
+        </button>
         
         <!-- 图例 - 放在地图图片内 -->
         <div class="map-legend">
@@ -32,6 +39,14 @@ import { ref, computed } from 'vue'
 import { useDashboardStore } from '@/stores/dashboard'
 
 const dashboardStore = useDashboardStore()
+
+// 添加时间戳，强制重新加载图片
+const timestamp = ref(Date.now())
+
+// 刷新图片方法
+const refreshImage = () => {
+  timestamp.value = Date.now()
+}
 
 // 城市数据
 const cityData = computed(() => dashboardStore.mapData)
@@ -80,6 +95,31 @@ const cityData = computed(() => dashboardStore.mapData)
 
 .map-image:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.refresh-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #e4e7ed;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #606266;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.refresh-btn:hover {
+  background: #409eff;
+  color: white;
+  border-color: #409eff;
+  transform: scale(1.1);
 }
 
 .map-legend {

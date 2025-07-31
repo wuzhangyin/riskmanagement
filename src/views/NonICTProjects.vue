@@ -48,11 +48,11 @@
             <div class="kpi-header">
               <span class="kpi-title">健康度</span>
             </div>
-            <div class="kpi-status">
+            <div class="kpi-value health-status">
               <div class="status-icon excellent"></div>
               <span class="status-text">优秀</span>
             </div>
-            <div class="kpi-trend trend-up">环比 +0%</div>
+            <div :class="['kpi-trend', parseFloat(healthTrend) >= 0 ? 'trend-up' : 'trend-down']">环比 {{ parseFloat(healthTrend) >= 0 ? '+' : '' }}{{ healthTrend }}%</div>
           </div>
           
           <div class="kpi-card">
@@ -60,7 +60,7 @@
               <span class="kpi-title">风险得分</span>
             </div>
             <div class="kpi-value">97.6</div>
-            <div class="kpi-trend trend-up">环比 +0%</div>
+            <div :class="['kpi-trend', riskScoreTrend >= 0 ? 'trend-up' : 'trend-down']">环比 {{ riskScoreTrend >= 0 ? '+' : '' }}{{ riskScoreTrend }}%</div>
           </div>
           
           <div class="kpi-card">
@@ -68,7 +68,7 @@
               <span class="kpi-title">预警量</span>
             </div>
             <div class="kpi-value">354</div>
-            <div class="kpi-trend trend-up">环比 +0%</div>
+            <div :class="['kpi-trend', warningTrend >= 0 ? 'trend-up' : 'trend-down']">环比 {{ warningTrend >= 0 ? '+' : '' }}{{ warningTrend }}%</div>
           </div>
           
           <div class="kpi-card">
@@ -76,7 +76,7 @@
               <span class="kpi-title">涉及客户量</span>
             </div>
             <div class="kpi-value">48</div>
-            <div class="kpi-trend trend-up">环比 +0%</div>
+            <div :class="['kpi-trend', customerTrend >= 0 ? 'trend-up' : 'trend-down']">环比 {{ customerTrend >= 0 ? '+' : '' }}{{ customerTrend }}%</div>
           </div>
           
           <div class="kpi-card">
@@ -84,7 +84,7 @@
               <span class="kpi-title">涉及项目量</span>
             </div>
             <div class="kpi-value">55</div>
-            <div class="kpi-trend trend-up">环比 +0%</div>
+            <div :class="['kpi-trend', projectTrend >= 0 ? 'trend-up' : 'trend-down']">环比 {{ projectTrend >= 0 ? '+' : '' }}{{ projectTrend }}%</div>
           </div>
         </div>
 
@@ -284,13 +284,25 @@ const currentPage = ref(1)
 const pageSize = ref(10)
 const total = ref(27)
 
+// 生成随机环比数据
+const generateRandomTrend = () => {
+  return (Math.random() * 20 - 10).toFixed(1) // 生成-10到10之间的随机数
+}
+
+// KPI环比数据 - 使用固定值
+const healthTrend = ref('9.5')
+const riskScoreTrend = ref('-0.1')
+const warningTrend = ref('7.8')
+const customerTrend = ref('9.9')
+const projectTrend = ref('-5.6')
+
 // 风险点数据
 const riskPoints = reactive([
   {
     rank: 1,
     name: '移动云-售前-客户履约能力预警',
     warnings: 114,
-    warningTrend: 0,
+    warningTrend: '5.2',
     score: 81.0,
     scoreTrend: 1040.0
   },
@@ -298,7 +310,7 @@ const riskPoints = reactive([
     rank: 2,
     name: '物联网-售前-客户履约能力预警',
     warnings: 72,
-    warningTrend: 0,
+    warningTrend: '-2.1',
     score: 81.0,
     scoreTrend: 380.0
   },
@@ -306,7 +318,7 @@ const riskPoints = reactive([
     rank: 3,
     name: '物联网-售前-上游客户欠费',
     warnings: 48,
-    warningTrend: 0,
+    warningTrend: '3.8',
     score: 86.4,
     scoreTrend: 100.0
   },
@@ -314,7 +326,7 @@ const riskPoints = reactive([
     rank: 4,
     name: '移动云-售前-整体利润率低',
     warnings: 36,
-    warningTrend: 0,
+    warningTrend: '-1.5',
     score: 86.4,
     scoreTrend: 140.0
   },
@@ -322,7 +334,7 @@ const riskPoints = reactive([
     rank: 5,
     name: '移动云-售前-上游客户欠费',
     warnings: 36,
-    warningTrend: -0,
+    warningTrend: '4.2',
     score: 86.4,
     scoreTrend: 100.0
   },
@@ -330,7 +342,7 @@ const riskPoints = reactive([
     rank: 6,
     name: '移动云-售中-交付实质不足',
     warnings: 18,
-    warningTrend: -0,
+    warningTrend: '-3.7',
     score: 86.8,
     scoreTrend: 200.0
   },
@@ -338,7 +350,7 @@ const riskPoints = reactive([
     rank: 7,
     name: '物联网-售前-整体利润率低',
     warnings: 12,
-    warningTrend: 0,
+    warningTrend: '1.9',
     score: 92.4,
     scoreTrend: 100.0
   },
@@ -346,7 +358,7 @@ const riskPoints = reactive([
     rank: 8,
     name: '大数据-售前-上游客户欠费',
     warnings: 6,
-    warningTrend: 0,
+    warningTrend: '0.8',
     score: 94.4,
     scoreTrend: 100.0
   },
@@ -354,7 +366,7 @@ const riskPoints = reactive([
     rank: 9,
     name: '移动云-售前-上游与下游存在关联关系',
     warnings: 6,
-    warningTrend: 0,
+    warningTrend: '-0.5',
     score: 94.4,
     scoreTrend: 100.0
   },
@@ -362,7 +374,7 @@ const riskPoints = reactive([
     rank: 10,
     name: '大数据-售前-上游与下游存在关联关系',
     warnings: 6,
-    warningTrend: 0,
+    warningTrend: '2.3',
     score: 94.4,
     scoreTrend: 100.0
   }
@@ -468,7 +480,10 @@ const goToHome = () => {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 120px;
 }
 
 .kpi-header {
@@ -486,7 +501,10 @@ const goToHome = () => {
 .kpi-trend {
   font-size: 14px;
   font-weight: 500;
-  margin-top: 8px;
+  text-align: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-top: auto;
 }
 
 .trend-up {
@@ -503,6 +521,20 @@ const goToHome = () => {
   font-size: 28px;
   font-weight: 700;
   color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: 1;
+  margin: 8px 0;
+}
+
+.kpi-value.health-status {
+  font-size: 16px;
+  font-weight: 600;
+  color: #67c23a;
+  min-height: 40px;
+  align-items: center;
 }
 
 .kpi-status {

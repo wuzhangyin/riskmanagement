@@ -26,38 +26,25 @@ export const useDashboardStore = defineStore('dashboard', () => {
   ])
 
   const mapData = ref([
-    { name: '广州市', value: 92.3, warnings: 156 },
-    { name: '深圳市', value: 91.7, warnings: 198 },
-    { name: '珠海市', value: 89.2, warnings: 234 },
-    { name: '汕头市', value: 87.8, warnings: 167 },
-    { name: '佛山市', value: 85.4, warnings: 145 },
-    { name: '韶关市', value: 83.1, warnings: 123 },
-    { name: '湛江市', value: 81.6, warnings: 98 },
-    { name: '肇庆市', value: 79.3, warnings: 87 },
-    { name: '江门市', value: 88.5, warnings: 134 },
-    { name: '茂名市', value: 86.2, warnings: 112 },
-    { name: '惠州市', value: 84.7, warnings: 156 },
-    { name: '梅州市', value: 82.9, warnings: 89 },
-    { name: '汕尾市', value: 80.4, warnings: 67 },
-    { name: '河源市', value: 78.6, warnings: 78 },
-    { name: '阳江市', value: 85.1, warnings: 95 },
-    { name: '清远市', value: 83.8, warnings: 103 },
-    { name: '东莞市', value: 90.2, warnings: 178 },
-    { name: '中山市', value: 88.9, warnings: 145 },
-    { name: '潮州市', value: 81.3, warnings: 76 },
-    { name: '揭阳市', value: 79.8, warnings: 82 },
-    { name: '云浮市', value: 77.5, warnings: 54 }
+    { name: '南平市', value: 96, warnings: 167 },
+    { name: '福州市', value: 92.3, warnings: 156 },
+    { name: '龙岩市', value: 91, warnings: 95 },
+    { name: '泉州市', value: 88, warnings: 178 },
+    { name: '厦门市', value: 86, warnings: 198 },
+    { name: '宁德市', value: 78, warnings: 123 },
+    { name: '莆田市', value: 77, warnings: 145 },
+    { name: '三明市', value: 71, warnings: 134 }
   ])
 
   const cityRankingData = ref([
-    { rank: 1, city: '广州市', health: '92.3', warnings: '156' },
-    { rank: 2, city: '深圳市', health: '91.7', warnings: '198' },
-    { rank: 3, city: '东莞市', health: '90.2', warnings: '178' },
-    { rank: 4, city: '珠海市', health: '89.2', warnings: '234' },
-    { rank: 5, city: '中山市', health: '88.9', warnings: '145' },
-    { rank: 6, city: '江门市', health: '88.5', warnings: '134' },
-    { rank: 7, city: '汕头市', health: '87.8', warnings: '167' },
-    { rank: 8, city: '阳江市', health: '85.1', warnings: '95' }
+    { rank: 1, city: '南平市', health: '96', warnings: '167' },
+    { rank: 2, city: '福州市', health: '92.3', warnings: '156' },
+    { rank: 3, city: '龙岩市', health: '91', warnings: '95' },
+    { rank: 4, city: '泉州市', health: '88', warnings: '178' },
+    { rank: 5, city: '厦门市', health: '86', warnings: '198' },
+    { rank: 6, city: '宁德市', health: '78', warnings: '123' },
+    { rank: 7, city: '莆田市', health: '77', warnings: '145' },
+    { rank: 8, city: '三明市', health: '71', warnings: '134' }
   ])
 
   const productData = ref([
