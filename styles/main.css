@@ -1,0 +1,745 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #303133;
+    background-color: #f5f7fa;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* 通用样式类 */
+.flex {
+    display: flex;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+/* 主容器 */
+.dashboard {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f7fa;
+}
+
+/* 头部样式 */
+.dashboard-header {
+    background: #ffffff;
+    padding: 16px 24px;
+    border-bottom: 1px solid #e4e7ed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.platform-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #303133;
+    margin: 0;
+}
+
+.time-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.label {
+    color: #606266;
+    font-size: 14px;
+}
+
+.radio-group {
+    display: flex;
+    gap: 8px;
+}
+
+.radio-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.radio-item:hover {
+    background-color: #f5f7fa;
+}
+
+.radio-item input[type="radio"] {
+    margin: 0;
+}
+
+.date-picker {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 16px;
+}
+
+.date-input {
+    padding: 4px 8px;
+    border: 1px solid #dcdfe6;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.date-separator {
+    color: #606266;
+    font-size: 12px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid #dcdfe6;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.search-input {
+    padding: 6px 12px;
+    border: none;
+    outline: none;
+    width: 200px;
+    font-size: 14px;
+}
+
+.search-btn {
+    padding: 6px 12px;
+    background: #409eff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.search-btn:hover {
+    background: #337ecc;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    position: relative;
+}
+
+.user-info:hover {
+    background-color: #f5f7fa;
+}
+
+.user-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+.user-name {
+    font-size: 14px;
+    color: #303133;
+}
+
+.dropdown-arrow {
+    font-size: 12px;
+    color: #606266;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border: 1px solid #e4e7ed;
+    border-radius: 4px;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 1000;
+    min-width: 120px;
+}
+
+.user-info:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-item {
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #303133;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dropdown-item:hover {
+    background-color: #f5f7fa;
+}
+
+/* 主内容区域 */
+.dashboard-main {
+    flex: 1;
+    padding: 24px;
+    overflow-y: auto;
+}
+
+/* KPI卡片区域 */
+.kpi-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.kpi-card {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.health-score {
+    border-left: 4px solid #409eff;
+}
+
+.kpi-content .kpi-title {
+    font-size: 14px;
+    color: #606266;
+    margin-bottom: 8px;
+}
+
+.kpi-content .kpi-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #303133;
+    margin-bottom: 8px;
+}
+
+.kpi-content .unit {
+    font-size: 18px;
+    margin-left: 4px;
+}
+
+.kpi-trend {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.trend-up {
+    color: #67c23a;
+}
+
+.trend-down {
+    color: #f56c6c;
+}
+
+.trend-stable {
+    color: #909399;
+}
+
+.trend-icon {
+    font-size: 12px;
+}
+
+.kpi-chart {
+    width: 80px;
+    height: 40px;
+}
+
+/* 主内容布局 */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 24px;
+    height: calc(100vh - 280px);
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #303133;
+    margin-bottom: 16px;
+    padding-left: 12px;
+    border-left: 3px solid #409eff;
+}
+
+.left-column,
+.center-column,
+.right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    overflow-y: auto;
+}
+
+/* 卡片样式 */
+.card {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04);
+    flex: 1;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e4e7ed;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #303133;
+}
+
+/* 业务卡片 */
+.business-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.business-item {
+    padding: 16px;
+    border: 1px solid #e4e7ed;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.business-name {
+    font-size: 14px;
+    color: #606266;
+    margin-bottom: 8px;
+}
+
+.business-value {
+    font-size: 20px;
+    font-weight: 600;
+    color: #303133;
+    margin-bottom: 4px;
+}
+
+.business-trend {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* 图表容器 */
+.chart-container {
+    height: 300px;
+    width: 100%;
+}
+
+/* 业务详情 */
+.business-details .business-detail-item {
+    padding: 16px 0;
+    border-bottom: 1px solid #e4e7ed;
+}
+
+.business-details .business-detail-item:last-child {
+    border-bottom: none;
+}
+
+.detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.detail-name {
+    font-weight: 500;
+    color: #303133;
+}
+
+.detail-count {
+    font-size: 18px;
+    font-weight: 600;
+    color: #303133;
+}
+
+.detail-trend {
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.detail-projects {
+    font-size: 12px;
+    color: #909399;
+}
+
+/* 地图容器 */
+.map-container {
+    height: 400px;
+    margin-bottom: 16px;
+    width: 100%;
+    border: 1px solid #e4e7ed;
+    border-radius: 4px;
+}
+
+/* 地图卡片 */
+.map-card .map-container {
+    height: 400px;
+    margin-bottom: 16px;
+}
+
+.city-ranking .ranking-header {
+    font-weight: 500;
+    color: #303133;
+    margin-bottom: 8px;
+}
+
+.ranking-table {
+    border: 1px solid #e4e7ed;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.ranking-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ranking-table th,
+.ranking-table td {
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1px solid #e4e7ed;
+    font-size: 12px;
+}
+
+.ranking-table th {
+    background-color: #f5f7fa;
+    font-weight: 500;
+    color: #606266;
+}
+
+.ranking-table tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+/* 标签组 */
+.tab-group {
+    display: flex;
+    gap: 4px;
+}
+
+.tab-btn {
+    padding: 4px 12px;
+    border: 1px solid #dcdfe6;
+    background: white;
+    color: #606266;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.3s;
+}
+
+.tab-btn:hover {
+    color: #409eff;
+    border-color: #409eff;
+}
+
+.tab-btn.active {
+    background: #409eff;
+    color: white;
+    border-color: #409eff;
+}
+
+/* 产品卡片 */
+.product-cards .product-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid #e4e7ed;
+}
+
+.product-cards .product-item:last-child {
+    border-bottom: none;
+}
+
+.product-info .product-name {
+    font-weight: 500;
+    color: #303133;
+    margin-bottom: 4px;
+}
+
+.product-info .product-value {
+    font-size: 18px;
+    font-weight: 600;
+    color: #303133;
+    margin-bottom: 4px;
+}
+
+.product-info .product-trend {
+    font-size: 14px;
+}
+
+.product-item button {
+    background: none;
+    border: none;
+    color: #409eff;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.product-item button:hover {
+    background-color: #f0f9ff;
+}
+
+/* 项目统计 */
+.project-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 16px;
+    border: 1px solid #e4e7ed;
+    border-radius: 4px;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #606266;
+    margin-bottom: 8px;
+}
+
+.stat-value {
+    font-size: 20px;
+    font-weight: 600;
+    color: #303133;
+    margin-bottom: 4px;
+}
+
+.stat-trend {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* 风险结构 */
+.risk-structure .structure-tabs {
+    margin: 16px 0;
+    display: flex;
+    gap: 4px;
+}
+
+.risk-indicators {
+    margin-top: 16px;
+}
+
+.risk-indicators table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+.risk-indicators th,
+.risk-indicators td {
+    padding: 6px 8px;
+    text-align: left;
+    border-bottom: 1px solid #e4e7ed;
+}
+
+.risk-indicators th {
+    background-color: #f5f7fa;
+    font-weight: 500;
+    color: #606266;
+}
+
+.risk-indicators tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+/* 检查事件 */
+.inspection-events .event-summary {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.event-total {
+    text-align: center;
+}
+
+.total-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #303133;
+    margin-bottom: 4px;
+}
+
+.total-trend {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.event-charts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.chart-item {
+    text-align: center;
+}
+
+.chart-title {
+    font-size: 14px;
+    color: #606266;
+    margin-bottom: 8px;
+}
+
+.chart-item .chart-container {
+    height: 150px;
+}
+
+/* 响应式设计 */
+@media (max-width: 1200px) {
+    .main-content {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .kpi-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .business-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .project-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .event-charts {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-header {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+    }
+
+    .header-left {
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+    }
+
+    .time-controls {
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .radio-group {
+        justify-content: space-between;
+    }
+
+    .date-picker {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .header-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .kpi-section {
+        grid-template-columns: 1fr;
+    }
+} 

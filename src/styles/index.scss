@@ -1,0 +1,165 @@
+@use './variables.scss' as *;
+
+// 全局重置
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: $font-family;
+  font-size: $font-size-base;
+  line-height: 1.5;
+  color: $text-primary;
+  background-color: $background-color;
+}
+
+// 滚动条样式
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: $border-lighter;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $border-color;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $text-secondary;
+}
+
+// 工具类
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+// 趋势样式
+.trend-up {
+  color: $success-color;
+}
+
+.trend-down {
+  color: $danger-color;
+}
+
+.trend-stable {
+  color: $text-secondary;
+}
+
+// 卡片样式
+.card {
+  background: $background-white;
+  border-radius: $border-radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $box-shadow;
+  margin-bottom: $spacing-md;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-md;
+  padding-bottom: $spacing-sm;
+  border-bottom: 1px solid $border-light;
+}
+
+.card-title {
+  font-size: $font-size-large;
+  font-weight: 600;
+  color: $text-primary;
+}
+
+// 图表容器
+.chart-container {
+  height: 300px;
+  width: 100%;
+}
+
+.map-container {
+  height: 400px;
+  width: 100%;
+  border: 1px solid $border-light;
+  border-radius: $border-radius;
+}
+
+// 表格样式
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  
+  th, td {
+    padding: $spacing-sm $spacing-md;
+    text-align: left;
+    border-bottom: 1px solid $border-light;
+    font-size: $font-size-small;
+  }
+  
+  th {
+    background-color: $background-color;
+    font-weight: 500;
+    color: $text-regular;
+  }
+  
+  tr:nth-child(even) {
+    background-color: $border-extra-light;
+  }
+}
+
+// 响应式设计
+@media (max-width: $breakpoint-lg) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .kpi-section {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .kpi-section {
+    grid-template-columns: 1fr;
+  }
+  
+  .card {
+    padding: $spacing-md;
+  }
+} 

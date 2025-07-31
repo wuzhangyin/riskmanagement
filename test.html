@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试页面</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 20px; border: 1px solid #ccc; }
+        .map-container { height: 400px; width: 100%; border: 1px solid #ddd; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>政企风控平台 - 功能测试</h1>
+    
+    <div class="test-section">
+        <h2>1. 广东省风险健康度地图</h2>
+        <div class="map-container" id="riskMap"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>2. 地市风险均值排名</h2>
+        <div id="cityRankingTable"></div>
+    </div>
+    
+    <script src="https://cdn.bootcdn.net/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // 等待页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('测试页面加载完成');
+            
+            // 直接调用初始化函数
+            setTimeout(() => {
+                initDashboard();
+            }, 500);
+        });
+    </script>
+</body>
+</html> 

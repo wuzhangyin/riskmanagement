@@ -1,0 +1,16 @@
+<template>
+  <div id="app">
+    <router-view />
+  </div>
+</template>
+
+<script setup>
+// 主应用组件
+</script>
+
+<style>
+#app {
+  height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+}
+</style> 
